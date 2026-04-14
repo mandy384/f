@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Library Seating Layout</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Library Seat Management</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+    .seat {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      display: inline-block;
+      line-height: 50px;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .empty {
+      background-color: green;
+    }
+    .occupied {
+      background-color: red;
+    }
+  </style>
 </head>
+
 <body>
 
-<h2>Wisdom Nest</h2>
+<h1>Library Seat Status</h1>
 
-<div class="layout">
+<div id="seats"></div>
 
-  <!-- Row 1 -->
-  <div class="row">
-    <div class="seat">8</div>
-    <div class="seat">7</div>
-    <div class="seat">6</div>
-    <div class="seat">5</div>
-    <div class="seat">4</div>
-    <div class="seat">3</div>
-    <div class="seat">2</div>
-    <div class="seat">1</div>
-  </div>
+<script>
+  let totalSeats = 64;
+  let seatsDiv = document.getElementById("seats");
 
-  <!-- Row 2 -->
-  <div class="row">
-    <div class="seat">9</div>
-    <div class="seat">10</div>
-    <div class="seat">11</div>
-    <div class="seat">12</div>
-  </div>
+  for (let i = 1; i <= totalSeats; i++) {
+    let seat = document.createElement("div");
+    seat.classList.add("seat", "empty");
+    seat.innerText = i;
 
-  <!-- Row 3 -->
-  <div class="row">
-    <div class="seat">22</div>
-    <div class="seat">21</div>
-    <div class="seat">20</div>
-    <div class="seat">19</div>
-  </div>
+    seat.onclick = function() {
+      seat.classList.toggle("occupied");
+      seat.classList.toggle("empty");
+    };
 
-  <!-- Add more rows similarly -->
-
-</div>
+    seatsDiv.appendChild(seat);
+  }
+</script>
 
 </body>
 </html>
