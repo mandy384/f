@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Seat Management</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+    .seat {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      display: inline-block;
+      line-height: 50px;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .empty {
+      background-color: green;
+    }
+    .occupied {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Library Seat Status</h1>
+
+<div id="seats"></div>
+
 <script>
   let layout = [25, 25, 14];
   let seatNumber = 1;
@@ -43,3 +77,6 @@
     seatsDiv.appendChild(rowDiv);
   });
 </script>
+
+</body>
+</html>
